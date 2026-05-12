@@ -1,0 +1,21 @@
+# .github/workflows/notify-consumers.yml
+name: Notify consumers
+
+on:
+  push:
+    branches: [main]
+    paths: [siege.css]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: [tools-site, crusade-manager, army-builder, battle-assistant]
+    steps:
+      - name: Dispatch to ${{ matrix.repo }}
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DISPATCH_PAT }}
+          repository: SethGochey/${{ matrix.repo }}
+          event-type: ux-updated
