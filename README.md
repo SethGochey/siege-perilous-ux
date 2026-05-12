@@ -1,3 +1,5 @@
+> Code and redme all AI generated
+
 # siege-perilous-ux
 
 Shared design system for the Siege Perilous tool ecosystem. CSS tokens, base styles, and common components are maintained here and injected into each app at build time — so deployed HTML files remain fully self-contained and downloadable for offline use.
