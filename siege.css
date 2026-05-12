@@ -1,0 +1,106 @@
+/*
+  siege.css — Siege Perilous shared design system
+  repo: https://github.com/SethGochey/siege-perilous-ux
+
+  Injected at build time into each app by their GitHub Actions workflow.
+  Do not link this file directly from a browser — edit here, deploy via CI.
+*/
+
+/* ── Design Tokens ── */
+:root {
+  --gold:         #c9a84c;
+  --gold-dim:     #8a6f2e;
+  --gold-glow:    rgba(201,168,76,0.20);
+  --gold-subtle:  rgba(201,168,76,0.07);
+  --blood:        #8b1a1a;
+  --blood-bright: #c02020;
+  --surface:      #0d0b09;
+  --surface2:     #141210;
+  --surface3:     #1c1916;
+  --surface4:     #26221e;
+  --text:         #e8dcc8;
+  --text-dim:     #9a8870;
+  --text-muted:   #5c5040;
+  --border-gold:  rgba(201,168,76,0.28);
+  --border-dim:   rgba(201,168,76,0.10);
+  --radius:       4px;
+  --radius-lg:    8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+
+/* ── Base ── */
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--surface);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(139,26,26,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.022'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+h1, h2, h3, .cinzel { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+/* ── Header ── */
+header {
+  border-bottom: 1px solid var(--border-gold);
+  background: var(--surface2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.site-title .cross { color: var(--gold-dim); font-size: 1rem; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-dim);
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gold-dim);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  margin: 0.75rem 0;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-gold);
+}
