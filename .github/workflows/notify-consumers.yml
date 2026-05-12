@@ -14,7 +14,7 @@ jobs:
         repo: [tools-site, crusade-manager, army-builder, battle-assistant]
     steps:
       - name: Dispatch to ${{ matrix.repo }}
-        uses: peter-evans/repository-dispatch@v3
+        uses: peter-evans/repository-dispatch@v4
         with:
           token: ${{ secrets.DISPATCH_PAT }}
           repository: SethGochey/${{ matrix.repo }}
